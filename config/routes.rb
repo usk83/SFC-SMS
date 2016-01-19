@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :affiliations
+  resources :committees
   get 'welcome/index'
 
   devise_for :users
