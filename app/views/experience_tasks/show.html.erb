@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @experience_task.user_id %>
+</p>
+
+<p>
+  <strong>Task:</strong>
+  <%= @experience_task.task_id %>
+</p>
+
+<%= link_to 'Edit', edit_experience_task_path(@experience_task) %> |
+<%= link_to 'Back', experience_tasks_path %>

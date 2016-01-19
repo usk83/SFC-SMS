@@ -11,4 +11,13 @@ class User < ActiveRecord::Base
 
   has_many :user_stations
   has_many :stations, :through => :user_stations
+
+  has_many :responsible_tasks
+  has_many :tasks, :through => :responsible_tasks
+
+  has_many :experience_tasks
+  has_many :tasks, :through => :experience_tasks
+
+  has_many :desired_tasks
+  has_many :tasks, :through => :desired_tasks
 end

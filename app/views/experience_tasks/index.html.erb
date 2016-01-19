@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Experience Tasks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Task</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @experience_tasks.each do |experience_task| %>
+      <tr>
+        <td><%= experience_task.user_id %></td>
+        <td><%= experience_task.task_id %></td>
+        <td><%= link_to 'Show', experience_task %></td>
+        <td><%= link_to 'Edit', edit_experience_task_path(experience_task) %></td>
+        <td><%= link_to 'Destroy', experience_task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Experience task', new_experience_task_path %>

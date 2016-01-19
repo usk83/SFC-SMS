@@ -1,0 +1,25 @@
+<%= form_for(@experience_task) do |f| %>
+  <% if @experience_task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@experience_task.errors.count, "error") %> prohibited this experience_task from being saved:</h2>
+
+      <ul>
+      <% @experience_task.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :task_id %><br>
+    <%= f.number_field :task_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

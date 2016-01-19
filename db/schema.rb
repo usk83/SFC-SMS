@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160119081241) do
+ActiveRecord::Schema.define(version: 20160119084438) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -59,10 +59,31 @@ ActiveRecord::Schema.define(version: 20160119081241) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "desired_tasks", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "task_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "driver_licenses", force: :cascade do |t|
     t.string   "license_type"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "experience_tasks", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "task_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "responsible_tasks", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "task_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "stations", force: :cascade do |t|
@@ -70,6 +91,13 @@ ActiveRecord::Schema.define(version: 20160119081241) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "committee_id"
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "station_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "user_stations", force: :cascade do |t|
