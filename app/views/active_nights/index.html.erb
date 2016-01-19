@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Active Nights</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Allnight</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @active_nights.each do |active_night| %>
+      <tr>
+        <td><%= active_night.user_id %></td>
+        <td><%= active_night.allnight_id %></td>
+        <td><%= link_to 'Show', active_night %></td>
+        <td><%= link_to 'Edit', edit_active_night_path(active_night) %></td>
+        <td><%= link_to 'Destroy', active_night, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Active night', new_active_night_path %>

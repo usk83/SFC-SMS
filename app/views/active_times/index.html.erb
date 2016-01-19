@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Active Times</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Shift time</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @active_times.each do |active_time| %>
+      <tr>
+        <td><%= active_time.user_id %></td>
+        <td><%= active_time.shift_time_id %></td>
+        <td><%= link_to 'Show', active_time %></td>
+        <td><%= link_to 'Edit', edit_active_time_path(active_time) %></td>
+        <td><%= link_to 'Destroy', active_time, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Active time', new_active_time_path %>

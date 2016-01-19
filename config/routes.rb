@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :active_nights
+  resources :allnights
+  resources :active_times
+  resources :shift_times
   resources :desired_tasks
   resources :experience_tasks
   resources :responsible_tasks

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @active_time.user_id %>
+</p>
+
+<p>
+  <strong>Shift time:</strong>
+  <%= @active_time.shift_time_id %>
+</p>
+
+<%= link_to 'Edit', edit_active_time_path(@active_time) %> |
+<%= link_to 'Back', active_times_path %>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @active_night.user_id %>
+</p>
+
+<p>
+  <strong>Allnight:</strong>
+  <%= @active_night.allnight_id %>
+</p>
+
+<%= link_to 'Edit', edit_active_night_path(@active_night) %> |
+<%= link_to 'Back', active_nights_path %>

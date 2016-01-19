@@ -20,4 +20,10 @@ class User < ActiveRecord::Base
 
   has_many :desired_tasks
   has_many :tasks, :through => :desired_tasks
+
+  has_many :active_time
+  has_many :shift_time, :through => :active_time
+
+  has_many :active_night
+  has_many :allnight, :through => :active_night
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160119084438) do
+ActiveRecord::Schema.define(version: 20160119090616) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -27,6 +27,20 @@ ActiveRecord::Schema.define(version: 20160119084438) do
   add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
   add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace"
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
+
+  create_table "active_nights", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "allnight_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "active_times", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "shift_time_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
 
   create_table "admin_users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -51,6 +65,12 @@ ActiveRecord::Schema.define(version: 20160119084438) do
     t.integer  "committee_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "allnights", force: :cascade do |t|
+    t.date     "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "committees", force: :cascade do |t|
@@ -82,6 +102,13 @@ ActiveRecord::Schema.define(version: 20160119084438) do
   create_table "responsible_tasks", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "task_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "shift_times", force: :cascade do |t|
+    t.date     "shift_date"
+    t.time     "shift_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

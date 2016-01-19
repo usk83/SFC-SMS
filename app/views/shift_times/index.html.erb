@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Shift Times</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Shift date</th>
+      <th>Shift time</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @shift_times.each do |shift_time| %>
+      <tr>
+        <td><%= shift_time.shift_date %></td>
+        <td><%= shift_time.shift_time %></td>
+        <td><%= link_to 'Show', shift_time %></td>
+        <td><%= link_to 'Edit', edit_shift_time_path(shift_time) %></td>
+        <td><%= link_to 'Destroy', shift_time, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Shift time', new_shift_time_path %>
