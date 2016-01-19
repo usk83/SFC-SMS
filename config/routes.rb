@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :user_stations
+  resources :stations
   resources :driver_licenses
   resources :affiliations
   resources :committees

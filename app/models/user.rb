@@ -6,5 +6,9 @@ class User < ActiveRecord::Base
 
   has_many :affiliations
   has_many :committees, :through => :affiliations
+
   belongs_to :driver_license
+
+  has_many :user_stations
+  has_many :stations, :through => :user_stations
 end
