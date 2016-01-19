@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :driver_licenses
   resources :affiliations
   resources :committees
   get 'welcome/index'
