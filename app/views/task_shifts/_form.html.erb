@@ -1,33 +1,55 @@
-<%= form_for(@task_shift) do |f| %>
-  <% if @task_shift.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@task_shift.errors.count, "error") %> prohibited this task_shift from being saved:</h2>
+<%= form_for @task_shift, :html => { :class => "form-horizontal task_shift" } do |f| %>
 
-      <ul>
-      <% @task_shift.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <% if @task_shift.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@task_shift.errors.count, "error") %> prohibited this task_shift from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @task_shift.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :task_id %><br>
-    <%= f.number_field :task_id %>
+  <div class="form-group">
+    <%= f.label :task_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.collection_select :task_id, Task.all, :id, :name %>
+    </div>
+    <%=f.error_span(:task_id) %>
   </div>
-  <div class="field">
-    <%= f.label :shift_time_id %><br>
-    <%= f.number_field :shift_time_id %>
+  <div class="form-group">
+    <%= f.label :shift_time_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+    <%= f.collection_select :shift_time_id, ShiftTime.all, :id, :shift_datetime %>
+    </div>
+    <%=f.error_span(:shift_time_id) %>
   </div>
-  <div class="field">
-    <%= f.label :min_num %><br>
-    <%= f.number_field :min_num %>
+  <div class="form-group">
+    <%= f.label :min_num, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.number_field :min_num, in: 1...100, class: 'form-control' %>
+    </div>
+    <%=f.error_span(:min_num) %>
   </div>
-  <div class="field">
-    <%= f.label :max_num %><br>
-    <%= f.number_field :max_num %>
+  <div class="form-group">
+    <%= f.label :max_num, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.number_field :max_num, in: 1...100, class: 'form-control' %>
+    </div>
+    <%=f.error_span(:max_num) %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                task_shifts_path, :class => 'btn btn-default' %>
+    </div>
   </div>
+
 <% end %>

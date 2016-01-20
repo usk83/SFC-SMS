@@ -1,24 +1,25 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = TaskShift -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>Task:</strong>
-  <%= @task_shift.task_id %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:task_id) %>:</strong></dt>
+  <dd><%= @task_shift.task.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:shift_time_id) %>:</strong></dt>
+  <dd><%= @task_shift.shift_time.shift_datetime %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:min_num) %>:</strong></dt>
+  <dd><%= @task_shift.min_num %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:max_num) %>:</strong></dt>
+  <dd><%= @task_shift.max_num %></dd>
+</dl>
 
-<p>
-  <strong>Shift time:</strong>
-  <%= @task_shift.shift_time_id %>
-</p>
-
-<p>
-  <strong>Min num:</strong>
-  <%= @task_shift.min_num %>
-</p>
-
-<p>
-  <strong>Max num:</strong>
-  <%= @task_shift.max_num %>
-</p>
-
-<%= link_to 'Edit', edit_task_shift_path(@task_shift) %> |
-<%= link_to 'Back', task_shifts_path %>
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              task_shifts_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_task_shift_path(@task_shift), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              task_shift_path(@task_shift),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
