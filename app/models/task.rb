@@ -9,4 +9,7 @@ class Task < ActiveRecord::Base
   has_many :users, :through => :desired_tasks
 
   belongs_to :station
+
+  has_many :task_shifts
+  has_many :shift_times, :through => :task_shifts
 end

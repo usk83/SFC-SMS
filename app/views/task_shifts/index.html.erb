@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Task Shifts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Task</th>
+      <th>Shift time</th>
+      <th>Min num</th>
+      <th>Max num</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @task_shifts.each do |task_shift| %>
+      <tr>
+        <td><%= task_shift.task_id %></td>
+        <td><%= task_shift.shift_time_id %></td>
+        <td><%= task_shift.min_num %></td>
+        <td><%= task_shift.max_num %></td>
+        <td><%= link_to 'Show', task_shift %></td>
+        <td><%= link_to 'Edit', edit_task_shift_path(task_shift) %></td>
+        <td><%= link_to 'Destroy', task_shift, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Task shift', new_task_shift_path %>

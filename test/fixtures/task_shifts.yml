@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  task_id: 1
+  shift_time_id: 1
+  min_num: 1
+  max_num: 1
+
+two:
+  task_id: 1
+  shift_time_id: 1
+  min_num: 1
+  max_num: 1

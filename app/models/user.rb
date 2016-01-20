@@ -21,9 +21,12 @@ class User < ActiveRecord::Base
   has_many :desired_tasks
   has_many :tasks, :through => :desired_tasks
 
-  has_many :active_time
-  has_many :shift_time, :through => :active_time
+  has_many :active_times
+  has_many :shift_times, :through => :active_times
 
-  has_many :active_night
-  has_many :allnight, :through => :active_night
+  has_many :active_nights
+  has_many :allnights, :through => :active_nights
+
+  has_many :user_shifts
+  has_many :task_shifts, :through => :user_shifts
 end

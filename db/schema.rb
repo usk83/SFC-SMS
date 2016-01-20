@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160120115405) do
+ActiveRecord::Schema.define(version: 20160120120315) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -120,6 +120,15 @@ ActiveRecord::Schema.define(version: 20160120115405) do
     t.integer  "committee_id"
   end
 
+  create_table "task_shifts", force: :cascade do |t|
+    t.integer  "task_id"
+    t.integer  "shift_time_id"
+    t.integer  "min_num"
+    t.integer  "max_num"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
   create_table "tasks", force: :cascade do |t|
     t.string   "name"
     t.integer  "station_id"
@@ -127,6 +136,13 @@ ActiveRecord::Schema.define(version: 20160120115405) do
     t.datetime "updated_at",    null: false
     t.string   "detailed_name"
     t.string   "comment"
+  end
+
+  create_table "user_shifts", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "task_shift_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "user_stations", force: :cascade do |t|

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Task:</strong>
+  <%= @task_shift.task_id %>
+</p>
+
+<p>
+  <strong>Shift time:</strong>
+  <%= @task_shift.shift_time_id %>
+</p>
+
+<p>
+  <strong>Min num:</strong>
+  <%= @task_shift.min_num %>
+</p>
+
+<p>
+  <strong>Max num:</strong>
+  <%= @task_shift.max_num %>
+</p>
+
+<%= link_to 'Edit', edit_task_shift_path(@task_shift) %> |
+<%= link_to 'Back', task_shifts_path %>
