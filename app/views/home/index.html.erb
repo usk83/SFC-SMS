@@ -12,10 +12,4 @@
 <div class="col-lg-10">
   <h1>Home</h1>
   <p>This is a index for all users.</p>
-  <% if user_signed_in? %>
-    <p>You are <%= current_user.email %></p>
-    <%= link_to 'Logout', destroy_user_session_path, :method => :delete %>
-  <% else %>
-    <%= link_to 'Login', new_user_session_path %>
-  <% end %>
 </div>
