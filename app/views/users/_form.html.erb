@@ -1,0 +1,35 @@
+<%= form_for @user, url: users_profile_edit_path, :html => { :class => "form-horizontal user" } do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@user.errors.count, "error") %> prohibited this committee from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <% @columns.each do |culumn| %>
+    <div class="form-group">
+      <%= f.label culumn, :class => 'control-label col-lg-2' %>
+      <div class="col-lg-10">
+        <%= f.text_field culumn, :class => 'form-control' %>
+      </div>
+      <%=f.error_span(culumn) %>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                users_profile_path, :class => 'btn btn-default' %>
+    </div>
+  </div>
+
+<% end %>

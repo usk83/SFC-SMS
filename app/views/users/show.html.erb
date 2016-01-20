@@ -1,0 +1,22 @@
+<div class="col-lg-12">
+  <h1>プロフィール</h1>
+  <% # debug(current_user) %>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>項目名</th>
+        <th>内容</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @columns.each do |culumn| %>
+        <tr>
+          <td><%= culumn %></td>
+          <td><%= current_user.send("#{culumn}") %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= link_to 'Edit', users_profile_edit_path, :class => 'btn btn-default' %>
+</div>
