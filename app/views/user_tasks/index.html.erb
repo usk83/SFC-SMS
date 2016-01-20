@@ -5,20 +5,16 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:user_id) %></th>
       <th><%= model_class.human_attribute_name(:task_id) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @user_tasks.each do |user_task| %>
       <tr>
-        <td><%= link_to user_task.id, user_task_path(user_task) %></td>
-        <td><%= user_task.user_id %></td>
-        <td><%= user_task.task_id %></td>
-        <td><%=l user_task.created_at %></td>
+        <td><%= user_task.user.name %></td>
+        <td><%= user_task.task.name %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_user_task_path(user_task), :class => 'btn btn-default btn-xs' %>
