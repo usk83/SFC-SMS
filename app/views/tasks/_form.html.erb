@@ -25,7 +25,7 @@
   <div class="form-group">
     <%= f.label :station_id, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :station_id, :class => 'form-control' %>
+      <%= f.collection_select :station_id, Station.all, :id, :name, class: 'form-control' %>
     </div>
     <%=f.error_span(:station_id) %>
   </div>

@@ -7,7 +7,7 @@
   <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
   <dd><%= @task.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:station_id) %>:</strong></dt>
-  <dd><%= @task.station_id %></dd>
+  <dd><%= @task.station.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:detailed_name) %>:</strong></dt>
   <dd><%= @task.detailed_name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:comment) %>:</strong></dt>
