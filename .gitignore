@@ -1,3 +1,6 @@
+*.md
+/*.rb
+
 *.rbc
 capybara-*.html
 .rspec
