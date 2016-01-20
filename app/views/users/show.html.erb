@@ -13,7 +13,13 @@
       <% @columns.each do |culumn| %>
         <tr>
           <td><%= culumn %></td>
-          <td><%= current_user.send("#{culumn}") %></td>
+          <td><%=
+                if culumn == "driver_license_id"
+                  current_user.driver_license.license_type
+                else
+                  current_user.send("#{culumn}")
+                end
+              %></td>
         </tr>
       <% end %>
     </tbody>

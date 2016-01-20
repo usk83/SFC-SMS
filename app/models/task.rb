@@ -12,4 +12,7 @@ class Task < ActiveRecord::Base
 
   has_many :task_shifts
   has_many :shift_times, :through => :task_shifts
+
+  has_many :user_tasks
+  has_many :users, :through => :user_tasks
 end

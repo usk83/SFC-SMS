@@ -18,7 +18,15 @@
     <div class="form-group">
       <%= f.label culumn, :class => 'control-label col-lg-2' %>
       <div class="col-lg-10">
-        <%= f.text_field culumn, :class => 'form-control' %>
+        <%=
+          if culumn == "driver_license_id"
+            f.collection_select :driver_license_id, DriverLicense.all, :id, :license_type, class: 'form-control'
+          elsif culumn == "tel"
+            f.telephone_field :tel, class: 'form-control', maxlength: 12
+          else
+            f.text_field culumn, :class => 'form-control'
+          end
+        %>
       </div>
       <%=f.error_span(culumn) %>
     </div>
