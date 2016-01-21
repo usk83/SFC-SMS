@@ -1,7 +1,3 @@
-User.create!([
-  {email: "usk@keio.jp", encrypted_password: "$2a$10$4IDNveIJiz5Tv9BTDq.1muS8zafuTOcqZiadPNPT9ZRulOHMbRrre", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 8, current_sign_in_at: "2016-01-21 11:42:52", last_sign_in_at: "2016-01-21 10:22:57", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", name: "Yusuke Takahashi", year: 3, line: "null", tel: "09012345678", comment: "ステージやりたくない", driver_license_id: 2, is_admin: true},
-  {email: "test@example.com", encrypted_password: "$2a$10$T/yrOAuwyQh/I6Ye/yQcmuJeUBNsS3qVsW2s1Jvd5Y6K33XPK1LCO", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 3, current_sign_in_at: "2016-01-21 10:10:52", last_sign_in_at: "2016-01-21 09:08:17", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", name: "test man", year: 1, line: "testmanlineid", tel: "09087654321", comment: "テストユーザーなり", driver_license_id: 3, is_admin: false}
-])
 AdminUser.create!([
   {email: "usk@keio.jp", encrypted_password: "$2a$10$zTzVPC2ewWE/43fyArjI/uhVRHg015CZCZwJJHlj2kfEnMUA99tqS", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 10, current_sign_in_at: "2016-01-21 12:23:00", last_sign_in_at: "2016-01-21 10:35:26", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1"}
 ])
