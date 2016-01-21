@@ -1,7 +1,4 @@
 class Task < ActiveRecord::Base
-  has_many :responsible_tasks
-  has_many :users, :through => :responsible_tasks
-
   has_many :experience_tasks
   has_many :users, :through => :experience_tasks
 
