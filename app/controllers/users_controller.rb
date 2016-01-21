@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:email, :name, :year, :line, :tel, :comment, :driver_license_id)
+    params.require(:user).permit(:email, :name, :year, :line, :tel, :comment, :driver_license_id, :is_admin)
   end
 
   def user_culumns
