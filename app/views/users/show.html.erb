@@ -24,7 +24,20 @@
               %></td>
         </tr>
       <% end %>
+      <tr>
+        <td>committee</td>
+        <td><%
+              if !current_user.committees.blank?
+                current_user.committees.each do |committee|
+            %>
+                  <%= committee.name %><br>
+            <%
+                end
+              end
+            %></td>
+      </tr>
     </tbody>
   </table>
   <%= link_to 'Edit', users_profile_edit_path, :class => 'btn btn-default' %>
+  <%= link_to '所属を編集', affiliations_path, :class => 'btn btn-default' %>
 </div>
