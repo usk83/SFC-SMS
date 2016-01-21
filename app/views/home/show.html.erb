@@ -3,7 +3,22 @@
 </div><!--/span-->
 <div class="col-lg-10 col-md-10">
   <div class="page-header">
-    <h1>シフト - <%=  @id %></h1>
+    <h1>シフト - <%= @id %>日目</h1>
   </div>
-  <p>shift id: <%= @id %></p>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>時間</th>
+        <th>シフト</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @shifts.each do |shift| %>
+        <tr>
+          <td><%= shift.task_shift.shift_time.shift_time_f %></td>
+          <td><%= shift.task_shift.task.name %></td>
+        </tr>
+      <% end%>
+    </tbody>
+  </table>
 </div>

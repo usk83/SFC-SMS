@@ -10,4 +10,10 @@ class ShiftTime < ActiveRecord::Base
   def shift_datetime
       self.shift_date.date.strftime("%Y/%m/%d") + ' ' + self.shift_time.strftime("%H:%M")
   end
+  def shift_date_f
+    self.shift_date.date.strftime("%Y/%m/%d")
+  end
+  def shift_time_f
+    self.shift_time.strftime("%H:%M")
+  end
 end
