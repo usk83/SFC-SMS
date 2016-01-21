@@ -1,6 +1,7 @@
-<h1>Editing Active Night</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @active_night %> |
-<%= link_to 'Back', active_nights_path %>
+<div class="col-lg-12">
+  <%- model_class = ActiveNight -%>
+  <div class="page-header">
+    <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %></h1>
+  </div>
+  <%= render :partial => 'form' %>
+</div>

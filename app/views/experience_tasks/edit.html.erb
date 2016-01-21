@@ -1,6 +1,7 @@
-<h1>Editing Experience Task</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @experience_task %> |
-<%= link_to 'Back', experience_tasks_path %>
+<div class="col-lg-12">
+  <%- model_class = ExperienceTask -%>
+  <div class="page-header">
+    <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %></h1>
+  </div>
+  <%= render :partial => 'form' %>
+</div>
