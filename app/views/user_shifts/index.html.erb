@@ -3,21 +3,28 @@
   <div class="page-header">
     <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
   </div>
+
+  <p><%#= debug @user_shifts %></p>
+
   <table class="table table-striped">
     <thead>
       <tr>
-        <th><%= model_class.human_attribute_name(:user_id) %></th>
-        <th>task</th>
-        <th>日時</th>
+        <th>タスク名</th>
+        <th>タスク日時</th>
+        <th>割り当てられた人数</th>
+        <th>必要最低人数</th>
+        <th>最大人数</th>
         <th><%=t '.actions', :default => t("helpers.actions") %></th>
       </tr>
     </thead>
     <tbody>
       <% @user_shifts.each do |user_shift| %>
         <tr>
-          <td><%= user_shift.user.name %></td>
           <td><%= user_shift.task_shift.task.name %></td>
           <td><%= user_shift.task_shift.shift_time.shift_datetime %></td>
+          <td>割り当てられた人数</td>
+          <td><%= user_shift.task_shift.min_num %></td>
+          <td><%= user_shift.task_shift.max_num %></td>
           <td>
             <%= link_to t('.edit', :default => t("helpers.links.edit")),
                         edit_user_shift_path(user_shift), :class => 'btn btn-default btn-xs' %>
