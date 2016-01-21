@@ -15,7 +15,6 @@ Rails.application.routes.draw do
   resources :driver_licenses
   resources :affiliations
   resources :committees
-  get 'welcome/index'
   resources :home, :only => [ :index ]
   get 'shift' => 'home#show'
   get 'shift/:id' => 'home#show'
