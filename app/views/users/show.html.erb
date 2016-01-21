@@ -48,9 +48,22 @@
               end
             %></td>
       </tr>
+      <tr>
+        <td>tasks</td>
+        <td><%
+              if !current_user.user_tasks.blank?
+                current_user.user_tasks.each do |user_task|
+            %>
+                  <%= user_task.task.name %><br>
+            <%
+                end
+              end
+            %></td>
+      </tr>
     </tbody>
   </table>
   <%= link_to 'Edit', users_profile_edit_path, :class => 'btn btn-default' %>
   <%= link_to '所属団体を編集', affiliations_path, :class => 'btn btn-default' %>
   <%= link_to '所属局を編集', user_stations_path, :class => 'btn btn-default' %>
+  <%= link_to '担当タスクを編集', user_tasks_path, :class => 'btn btn-default' %>
 </div>
