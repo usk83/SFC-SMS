@@ -15,7 +15,9 @@ Rails.application.routes.draw do
   resources :affiliations
   resources :committees
   get 'welcome/index'
-  resources :homes, :only => [ :index ]
+  resources :home, :only => [ :index ]
+  get 'shift' => 'home#show'
+  get 'shift/:id' => 'home#show'
   resources :users, :only => [ :index ]
   get 'users/profile' => 'users#show'
   get 'users/profile/edit' => 'users#edit'
