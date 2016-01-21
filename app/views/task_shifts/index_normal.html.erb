@@ -6,6 +6,7 @@
   <table class="table table-striped">
     <thead>
       <tr>
+        <th><%= model_class.human_attribute_name(:id) %></th>
         <th><%= model_class.human_attribute_name(:task_id) %></th>
         <th><%= model_class.human_attribute_name(:shift_time_id) %></th>
         <th><%= model_class.human_attribute_name(:min_num) %></th>
@@ -16,6 +17,7 @@
     <tbody>
       <% @task_shifts.each do |task_shift| %>
         <tr>
+          <td><%= link_to task_shift.id, task_shift_path(task_shift) %></td>
           <td><%= task_shift.task.name %></td>
           <td><%= task_shift.shift_time.shift_datetime%></td>
           <td><%= task_shift.min_num %></td>
