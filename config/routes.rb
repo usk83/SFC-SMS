@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :shift_dates
   resources :user_tasks
   resources :user_shifts
   resources :task_shifts

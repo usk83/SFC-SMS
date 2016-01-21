@@ -1,9 +1,9 @@
-ActiveAdmin.register ShiftTime do
+ActiveAdmin.register ShiftDate do
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-permit_params :shift_date_id, :shift_time
+permit_params :date
 #
 # or
 #

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160120203658) do
+ActiveRecord::Schema.define(version: 20160121052520) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -106,11 +106,17 @@ ActiveRecord::Schema.define(version: 20160120203658) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "shift_times", force: :cascade do |t|
-    t.date     "shift_date"
-    t.time     "shift_time"
+  create_table "shift_dates", force: :cascade do |t|
+    t.date     "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "shift_times", force: :cascade do |t|
+    t.time     "shift_time"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "shift_date_id"
   end
 
   create_table "stations", force: :cascade do |t|
