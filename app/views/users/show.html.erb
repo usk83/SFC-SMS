@@ -25,7 +25,7 @@
         </tr>
       <% end %>
       <tr>
-        <td>committee</td>
+        <td>committees</td>
         <td><%
               if !current_user.committees.blank?
                 current_user.committees.each do |committee|
@@ -36,8 +36,21 @@
               end
             %></td>
       </tr>
+      <tr>
+        <td>stations</td>
+        <td><%
+              if !current_user.stations.blank?
+                current_user.stations.each do |station|
+            %>
+                  <%= station.name %><br>
+            <%
+                end
+              end
+            %></td>
+      </tr>
     </tbody>
   </table>
   <%= link_to 'Edit', users_profile_edit_path, :class => 'btn btn-default' %>
-  <%= link_to '所属を編集', affiliations_path, :class => 'btn btn-default' %>
+  <%= link_to '所属団体を編集', affiliations_path, :class => 'btn btn-default' %>
+  <%= link_to '所属局を編集', user_stations_path, :class => 'btn btn-default' %>
 </div>
