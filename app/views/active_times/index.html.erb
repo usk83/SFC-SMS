@@ -6,20 +6,16 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <th><%= model_class.human_attribute_name(:id) %></th>
         <th><%= model_class.human_attribute_name(:user_id) %></th>
         <th><%= model_class.human_attribute_name(:shift_time_id) %></th>
-        <th><%= model_class.human_attribute_name(:created_at) %></th>
         <th><%=t '.actions', :default => t("helpers.actions") %></th>
       </tr>
     </thead>
     <tbody>
       <% @active_times.each do |active_time| %>
         <tr>
-          <td><%= link_to active_time.id, active_time_path(active_time) %></td>
-          <td><%= active_time.user_id %></td>
-          <td><%= active_time.shift_time_id %></td>
-          <td><%=l active_time.created_at %></td>
+          <td><%= active_time.user.name %></td>
+          <td><%= active_time.shift_time.shift_datetime %></td>
           <td>
             <%= link_to t('.edit', :default => t("helpers.links.edit")),
                         edit_active_time_path(active_time), :class => 'btn btn-default btn-xs' %>

@@ -6,9 +6,9 @@
 
   <dl class="dl-horizontal">
     <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
-    <dd><%= @experience_task.user_id %></dd>
+    <dd><%= @experience_task.user.name %></dd>
     <dt><strong><%= model_class.human_attribute_name(:task_id) %>:</strong></dt>
-    <dd><%= @experience_task.task_id %></dd>
+    <dd><%= @experience_task.task.name %></dd>
   </dl>
 
   <%= link_to t('.back', :default => t("helpers.links.back")),
