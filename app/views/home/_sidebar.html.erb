@@ -1,8 +1,11 @@
 <div class="well sidebar-nav">
   <h4>シフト日</h4>
   <ul class="nav nav-list">
-    <li><%= link_to "1日目", "/shift/1"  %></li>
-    <li><%= link_to "2日目", "/shift/2"  %></li>
-    <li><%= link_to "3日目", "/shift/3"  %></li>
+    <% i = 1
+      @shift_dates.each do |sd|
+    %>
+      <li><%= link_to i.to_s+"日目", "/shift/"+sd.id.to_s %></li>
+    <%  i += 1
+      end %>
   </ul>
 </div><!--/.well -->

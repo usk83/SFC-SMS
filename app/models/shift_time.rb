@@ -8,6 +8,6 @@ class ShiftTime < ActiveRecord::Base
   belongs_to :shift_date
 
   def shift_datetime
-      self.shift_date.strftime("%Y/%m/%d") + ' ' + self.shift_time.strftime("%H:%M")
+      self.shift_date.date.strftime("%Y/%m/%d") + ' ' + self.shift_time.strftime("%H:%M")
   end
 end
