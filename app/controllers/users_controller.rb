@@ -3,7 +3,6 @@ class UsersController < ApplicationController
   end
 
   def edit
-    # @user = User.column_names
     @user = User.find(current_user.id)
     @columns = user_culumns
   end

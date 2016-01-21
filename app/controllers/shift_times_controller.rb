@@ -1,5 +1,7 @@
 class ShiftTimesController < InheritedResources::Base
 
+  before_action :check_admin_access
+
   private
 
     def shift_time_params
