@@ -11,8 +11,8 @@ class UsersController < ApplicationController
     @user = User.find(current_user.id)
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to users_profile_path, notice: 'Student was successfully updated.' }
-        format.json { render :show, status: :ok, location: users_profile_path }
+        format.html { redirect_to profile_path, notice: 'Student was successfully updated.' }
+        format.json { render :show, status: :ok, location: profile_path }
       else
         format.html { render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }
