@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   resources :shift_times
   resources :desired_tasks
   resources :experience_tasks
-  resources :responsible_tasks
   resources :tasks
   resources :user_stations
   resources :stations

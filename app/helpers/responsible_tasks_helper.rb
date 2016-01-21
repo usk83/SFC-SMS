@@ -1,2 +1,0 @@
-module ResponsibleTasksHelper
-end
