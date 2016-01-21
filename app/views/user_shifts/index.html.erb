@@ -1,29 +1,38 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing User Shifts</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Task shift</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @user_shifts.each do |user_shift| %>
+<div class="col-lg-12">
+  <%- model_class = UserShift -%>
+  <div class="page-header">
+    <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+  </div>
+  <table class="table table-striped">
+    <thead>
       <tr>
-        <td><%= user_shift.user_id %></td>
-        <td><%= user_shift.task_shift_id %></td>
-        <td><%= link_to 'Show', user_shift %></td>
-        <td><%= link_to 'Edit', edit_user_shift_path(user_shift) %></td>
-        <td><%= link_to 'Destroy', user_shift, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th><%= model_class.human_attribute_name(:user_id) %></th>
+        <th>task</th>
+        <th>日時</th>
+        <th><%=t '.actions', :default => t("helpers.actions") %></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @user_shifts.each do |user_shift| %>
+        <tr>
+          <td><%= user_shift.user.name %></td>
+          <td><%= user_shift.task_shift.task.name %></td>
+          <td><%= user_shift.task_shift.shift_time.shift_datetime %></td>
+          <td>
+            <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                        edit_user_shift_path(user_shift), :class => 'btn btn-default btn-xs' %>
+            <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                        user_shift_path(user_shift),
+                        :method => :delete,
+                        :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                        :class => 'btn btn-xs btn-danger' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<br>
-
-<%= link_to 'New User shift', new_user_shift_path %>
+  <%= link_to t('.new', :default => t("helpers.links.new")),
+              new_user_shift_path,
+              :class => 'btn btn-primary' %>
+</div>

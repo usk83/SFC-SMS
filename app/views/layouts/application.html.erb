@@ -44,6 +44,9 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
+          <% if user_signed_in? && current_user.is_admin %>
+            <span class="icon-bar"></span>
+          <% end %>
         </button>
         <a class="navbar-brand" href="/"><span class='glyphicon glyphicon-calendar' aria-hidden='true'></span>シフト管理システム</a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
@@ -51,6 +54,10 @@
             <li><%= link_to "プロフィール", "/users/profile"  %></li>
             <li><%= link_to "タスク", "/tasks"  %></li>
             <li><%= link_to "アンケート", "/questionnaires"  %></li>
+            <% if user_signed_in? && current_user.is_admin %>
+              <li><%= link_to "シフト作成", "/user_shifts" %></li>
+              <li><%= link_to "その他管理", "/managements" %></li>
+            <% end %>
           </ul>
         </div>
       </div>
