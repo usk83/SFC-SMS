@@ -1,0 +1,67 @@
+<div class="col-lg-12">
+  <div class="page-header">
+    <h1>アンケート</h1>
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>項目名</th>
+        <th>内容</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>経験タスク</td>
+        <td><%
+              if !current_user.experience_tasks.blank?
+                current_user.experience_tasks.each do |experience_task|
+            %>
+                  <%= experience_task.task.name %><br>
+            <%
+                end
+              end
+            %></td>
+      </tr>
+      <tr>
+        <td>希望タスク</td>
+        <td><%
+              if !current_user.desired_tasks.blank?
+                current_user.desired_tasks.each do |desired_task|
+            %>
+                  <%= desired_task.task.name %><br>
+            <%
+                end
+              end
+            %></td>
+      </tr>
+      <tr>
+        <td>シフト参加可能時間</td>
+        <td><%
+              if !current_user.shift_times.blank?
+                current_user.shift_times.each do |shift_time|
+            %>
+                  <%= shift_time.shift_datetime %><br>
+            <%
+                end
+              end
+            %></td>
+      </tr>
+      <tr>
+        <td>残留可能日</td>
+        <td><%
+              if !current_user.allnights.blank?
+                current_user.allnights.each do |allnight|
+            %>
+                  <%= allnight.date %><br>
+            <%
+                end
+              end
+            %></td>
+      </tr>
+    </tbody>
+  </table>
+  <%= link_to '経験タスクを編集', experience_tasks_path, :class => 'btn btn-default' %>
+  <%= link_to '希望タスクを編集', desired_tasks_path, :class => 'btn btn-default' %>
+  <%= link_to 'シフト参加可能時間を編集', active_times_path, :class => 'btn btn-default' %>
+  <%= link_to '残留可能日を編集', active_nights_path, :class => 'btn btn-default' %>
+</div>
