@@ -13,18 +13,19 @@
     </thead>
     <tbody>
       <% @columns.each do |culumn| %>
-        <tr>
-          <td><%= culumn %></td>
-          <td><%=
-                if culumn == "driver_license_id" && !current_user.driver_license.blank?
-                  current_user.driver_license.license_type
-                elsif culumn == "is_admin"
-                else
-                  current_user.send("#{culumn}")
-                end
-              %></td>
-        </tr>
-      <% end %>
+        <% if culumn != "is_admin" %>
+          <tr>
+            <td><%= culumn %></td>
+            <td><%=
+                  if culumn == "driver_license_id" && !current_user.driver_license.blank?
+                    current_user.driver_license.license_type
+                  else
+                    current_user.send("#{culumn}")
+                  end
+                %></td>
+          </tr>
+        <% end
+      end %>
       <tr>
         <td>committees</td>
         <td><%
