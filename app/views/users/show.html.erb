@@ -16,7 +16,7 @@
         <tr>
           <td><%= culumn %></td>
           <td><%=
-                if culumn == "driver_license_id"
+                if culumn == "driver_license_id" && !current_user.driver_license.blank?
                   current_user.driver_license.license_type
                 else
                   current_user.send("#{culumn}")
